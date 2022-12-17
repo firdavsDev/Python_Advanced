@@ -1,4 +1,6 @@
 # use transform functions like sorted, filter, map
+# Map takes all objects in a list and allows you to apply a function to it
+# Filter takes all objects in a list and runs that through a function to create a new list with all objects that return True in that function.
 
 
 def filter_func(x):
