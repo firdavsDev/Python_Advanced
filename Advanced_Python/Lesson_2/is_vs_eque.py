@@ -9,12 +9,14 @@ a is b #False
 a == b #True
 
 # Problem
-a = 100
-b = 100
+c = 2300
+d = 2300
 
-a is b #True
-a == b #True
+c is d #True
+c == d #True
 
+print(c is d)
+print(c == d)
 
 
 # Answer

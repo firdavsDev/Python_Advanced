@@ -6,10 +6,12 @@ from itertools import chain, groupby, cycle, islice, count, dropwhile, takewhile
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-grouped = groupby(numbers, key=lambda x: x < 3) # True [1, 2] False [3, 4, 5, 6, 7, 8, 9]
+grouped = groupby(numbers, key=lambda x: x < 3) 
+# True [1, 2] 
+# False [3, 4, 5, 6, 7, 8, 9]
 
-for key, value in grouped:
-    print(key, list(value))
+for status, value in grouped:
+    print(status, list(value))
 
 # Task: Group the persons by age
 persons = [
@@ -56,14 +58,15 @@ print(next(count1))  # 120
 # use chain to connect sequences
 # use chain to connect sequences together
 x = chain("ABCD", "1234")
-print(list(x))  # ['A', 'B', 'C', 'D', '1', '2', '3', '4']
+y = chain.from_iterable([("ABCD", "1234"), {"ABCD", "1234"}])
+print(list(y))  # ['A', 'B', 'C', 'D', '1', '2', '3', '4']
 
 
 #################################################### dropwhile ####################################################
 # dropwhile() returns an iterator that returns the items in the sequence after the predicate function returns False for the first time.
 # The following example shows how to use dropwhile() to drop items from a sequence while the predicate function returns True.
 
-# dropwhile and takewhile will return values until
+# dropwhile and takewhile will return values until 
 # a certain condition is met that stops them
 
 vals = [10, 20, 30, 40, 50, 40, 30]

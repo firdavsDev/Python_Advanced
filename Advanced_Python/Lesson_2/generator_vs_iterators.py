@@ -15,16 +15,16 @@ def rand_num(low,high,n):
     for _ in range(n):
         yield random.randint(low,high)
 
-# for num in rand_num(1,10,1):
-#     print(num)
+for num in rand_num(1,10,3):
+    print(num)
 
 
 # Explanation
 # A generator is a special type of function that returns a lazy iterator.
-# Lazy iterators do not store all the values in memory, they generate the values on the fly:
+# Lazy iterators do NOT store all the values in memory, they generate the values on the fly:
 #
 
-# iter() vs next()
+# iter() & next()
 
 lst = [1,2,3,4,5]
 

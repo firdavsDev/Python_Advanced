@@ -21,9 +21,14 @@ class Student:
     def __repr__(self):
         return f"Student({self.name}, {self.age})"
 
+
+    def __str__(self) -> str:
+        return f"Student({self.name}, {self.age})"
+
+
 # A simple class to represent a class
 class Class:
-    def __init__(self, name, students):
+    def __init__(self, name:str, students:list):
         self.name = name
         self.students = students
 
@@ -31,6 +36,9 @@ class Class:
         return f"Class({self.name}, {self.students})"
 
 # Create a class with a list of students
+s1 = Student("Student 1", 20)
+s2 = Student("Student 2", 21)
+
 class1 = Class("Class 1", [Student("Student 1", 20), Student("Student 2", 21)])
 
 # Create a copy of the class

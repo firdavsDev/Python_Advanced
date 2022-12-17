@@ -1,7 +1,6 @@
 import psycopg2
 from psycopg2 import Error
 
-
 class PostgresConnector:
     def __init__(self, db_name: str,
                  password: str,
@@ -31,3 +30,12 @@ class PostgresConnector:
         if self.connection:
             self.connection.close()
             print('Connection is closed 😥')
+
+
+
+if __name__ == '__main__':
+    with PostgresConnector(db_name='postgres', password='postgres') as connection:
+        cursor = connection.cursor()
+        cursor.execute('SELECT version()')
+        record = cursor.fetchone()
+        print(f'You are connected to - {record[0]}')
