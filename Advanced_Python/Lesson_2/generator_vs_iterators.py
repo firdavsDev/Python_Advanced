@@ -71,3 +71,31 @@ import types, collections
 
 issubclass(types.GeneratorType, collections.Iterator) # True 
 # Generator is a subclass of iterator so it is also an iterator
+
+
+#################################################### Class Generator  ####################################################
+                
+class N_Even_Numbers:
+  def __init__(self, num):
+    self.num = num
+
+  def __iter__(self): # __iter__ is a method of iterator in python
+    self.counter = 0
+    return self
+
+  def __next__(self): # __next__ is a method of iterator
+    if self.counter < self.num:
+      cur = self.counter
+      self.counter+=2
+      return cur
+    raise StopIteration('End of iteration')
+
+# nums = N_Even_Numbers(5)
+
+# for el in nums:
+#   print(el)
+# nums = iter(nums)
+
+# print(next(nums))
+# print(next(nums))
+# print(next(nums))
