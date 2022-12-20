@@ -8,8 +8,10 @@ logger = logging.getLogger(__name__)
 steam_handler = logging.StreamHandler()
 file_handler = logging.FileHandler('file.log')
 
+
 # create a logging format
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
 
 steam_handler.setFormatter(formatter)
 file_handler.setFormatter(formatter)
@@ -41,7 +43,7 @@ logger = logging.getLogger('simpleExample')
 logger.setLevel(logging.DEBUG)
 
 # create file handler which logs even debug messages
-fh = logging.handlers.RotatingFileHandler('spam.log', maxBytes=2000, backupCount=5)
+fh = logging.handlers.RotatingFileHandler('spam.log', maxBytes=20, backupCount=5)
 fh.setLevel(logging.DEBUG)
 
 # create console handler with a higher log level

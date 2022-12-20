@@ -15,7 +15,7 @@
 
 class Employee:
     def __init__(self, first, last):
-        self.first = first
+        self.first = first 
         self.last = last
         self._email = f"{ self.first }.{ self.last }@company.com"
         self.__salary = 5000
@@ -27,7 +27,7 @@ class Employee:
         return self._email  # Protected attribute
 
     def salary(self):
-        return self.__salary
+        return self.__salary # 
 
 emp_1 = Employee("Davron", "Davronov")
 
@@ -77,7 +77,7 @@ class Tesla(Car):
     def __init__(self, brand, model, year):
         super().__init__(brand, model, year)
         self.__price = 50000
-
+    
     def get_price(self):
         return self.__price
 

@@ -46,9 +46,11 @@ except StopIteration:
 #################################################### Generator ####################################################
 
 def square_numbers(nums):
-    for i in range(nums):
-        yield (i**2) # yield is a keyword that is used like return, except the function will return a generator. 
-    
+  counter = 0
+  while counter < nums:
+        yield (counter**2) # yield is a keyword that is used like return, except the function will return a generator. 
+        counter +=1
+
 my_nums = square_numbers(10)
 
 print(my_nums) # <generator object square_numbers at 0x0000020B1B2B0F48>

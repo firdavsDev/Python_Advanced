@@ -20,8 +20,8 @@ def main():
                         )
 
     # Try out each of the log levels
-    logging.debug("This is a debug-level log message")
-    logging.info("This is an info-level log message")
+    logging.debug("This is a debug-level log message") # 10
+    logging.info("This is an info-level log message")   # 20
     logging.warning("This is a warning-level message")
     logging.error("This is an error-level message")
     logging.critical("This is a critical-level message")
@@ -29,6 +29,12 @@ def main():
     # Output formatted string to the log
     logging.info("Here's a string variable and an int: 10")
 
+    try:
+        not_imposimle = 2/'dscds'
+    except ZeroDivisionError:
+        logging.warning('Soni nolga bulish mumkin emas')
+    except Exception as e:
+        logging.exception('Errored:', extra=e)
 
 if __name__ == "__main__":
     main()

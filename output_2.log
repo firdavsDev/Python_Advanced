@@ -1,0 +1,9 @@
+12/20/2022 09:25:45 PM: INFO: main Line:23 User:joem@example.com This is an info-level log message
+12/20/2022 09:25:45 PM: WARNING: main Line:24 User:joem@example.com This is a warning-level message
+12/20/2022 09:25:45 PM: DEBUG: anotherFunction Line:10 User:joem@example.com This is a debug-level log message
+12/20/2022 09:28:18 PM: INFO: main Line:22 User:joem@example.com This is an info-level log message
+12/20/2022 09:28:18 PM: WARNING: main Line:23 User:joem@example.com This is a warning-level message
+12/20/2022 09:28:18 PM: DEBUG: anotherFunction Line:9 User:joem@example.com This is a debug-level log message
+12/20/2022 09:32:19 PM: INFO: main Line:24 User:joem@example.com Password:qwerty This is an info-level log message
+12/20/2022 09:32:19 PM: WARNING: main Line:25 User:joem@example.com Password:qwerty This is a warning-level message
+12/20/2022 09:32:19 PM: DEBUG: anotherFunction Line:11 User:joem@example.com Password:qwerty This is a debug-level log message

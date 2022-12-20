@@ -1,0 +1,13 @@
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+INFO:root:Ran with args: ('Davron', 25), and kwargs: {}
+ERROR:root:Ran with args: ('Davron', 25), and kwargs: {}
+ERROR:root:Ran with args: ('Davron', 25), and kwargs: {}
+ERROR:root:Ran with args: ('Davron', 25), and kwargs: {}
+NoneType: None
+DEBUG:root:Ran with args: ('Davron', 25), and kwargs: {}

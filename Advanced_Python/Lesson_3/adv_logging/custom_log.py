@@ -1,7 +1,9 @@
 import logging
 
 extData = {
-    'user': 'joem@example.com'
+    'user': 'joem@example.com',
+    'password':'qwerty'
+
 }
 
 
@@ -12,9 +14,9 @@ def anotherFunction():
 def main():
     # set the output file and debug level, and
     # use a custom formatting specification
-    fmtStr = "%(asctime)s: %(levelname)s: %(funcName)s Line:%(lineno)d User:%(user)s %(message)s"
+    fmtStr = "%(asctime)s: %(levelname)s: %(funcName)s Line:%(lineno)d User:%(user)s Password:%(password)s %(message)s"
     dateStr = "%m/%d/%Y %I:%M:%S %p" # 12/31/2009 11:59:59 PM
-    logging.basicConfig(filename="output.log",
+    logging.basicConfig(filename="output_2.log",
                         level=logging.DEBUG,
                         format=fmtStr,
                         datefmt=dateStr)

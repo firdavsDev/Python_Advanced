@@ -9,8 +9,8 @@ a is b #False
 a == b #True
 
 # Problem
-c = 2300
-d = 2300
+c = 230
+d = 230
 
 c is d #True
 c == d #True

@@ -22,14 +22,14 @@ print(plus_3(10))
 # Example: Passing function object as argument
 def decorator(func):
     test = func()
-    return f"{test} Davron"
+    return f"{test}"
 
 
-def hello():
-    return "Hello"
+def hello(msg:str)->str:
+    return 'msg'
 
 
-hello = decorator(hello)
+hello = decorator(hello())
 print(hello)
 
 
@@ -48,6 +48,8 @@ def say_whee():
 
 say_whee = my_decorator(say_whee)
 say_whee()
+
+
 # same example with @
 @my_decorator
 def say_whee():
@@ -80,9 +82,12 @@ return_greeting("Adam")
 ############################################ Decorator ############################################
 
 def decorator_function(orginal_function):
+
     def wrapper_function(*args, **kwargs):
         print(f"wrapper executed this before {orginal_function.__name__}")
+        print(f"Args: {args} \nKwargs: {kwargs}")
         return orginal_function(*args, **kwargs)
+
     return wrapper_function
 
 @decorator_function
@@ -93,7 +98,7 @@ def display():
 def display_info(name, age):
     print(f"display_info ran with arguments ({name}, {age})")
 
-display_info("Davron", 25)
+display_info(name = "Davron", age = 25)
 
 display()
 
@@ -103,6 +108,7 @@ class decorator_class(object):
             self.original_function = original_function
     
         def __call__(self, *args, **kwargs):
+            """Return function"""
             print(f"call method executed this before {self.original_function.__name__}")
             return self.original_function(*args, **kwargs)
 
@@ -127,11 +133,14 @@ def my_timer(original_function):
     import time
 
     def wrapper(*args, **kwargs):
+
         t1 = time.time()
         result = original_function(*args, **kwargs)
         t2 = time.time() - t1
         print(f"{original_function.__name__} ran in: {t2} sec")
+
         return result
+
     return wrapper
 
 def display_info(name, age):
@@ -141,15 +150,14 @@ def display_info(name, age):
 display_info = my_timer(display_info)
 display_info("Davron", 25)
 
-# Example 2: Logger decorator
-
+# Example 2: Logger decorator 
+import time  
 def my_logger(original_function):
     import logging
     logging.basicConfig(filename=f"{original_function.__name__}.log", level=logging.INFO)
 
     def wrapper(*args, **kwargs):
-        logging.info(
-            f"Ran with args: {args}, and kwargs: {kwargs}")
+        logging.info(f"Ran with args: {args}, and kwargs: {kwargs}")
         return original_function(*args, **kwargs)
     return wrapper
 
@@ -162,39 +170,43 @@ display_info("Davron", 25)
 
 # Example 3: Combination of timer and logger decorator
 
-def my_logger(original_function):
-    import logging
-    logging.basicConfig(filename=f"{original_function.__name__}.log", level=logging.INFO)
+from functools import wraps
 
-    def wrapper(*args, **kwargs):
-        logging.info(
-            f"Ran with args: {args}, and kwargs: {kwargs}")
-        return original_function(*args, **kwargs)
-    return wrapper
+import logging
+
+def out_logger(level:str):
+
+    def my_logger(original_function):
+        logging.basicConfig(filename=f"{original_function.__name__}.log", level=level)
+
+        @wraps(original_function)
+        def wrapper(*args, **kwargs):
+            logging.info(
+                f"Ran with args: {args}, and kwargs: {kwargs}")
+            return original_function(*args, **kwargs)
+        return wrapper
+    return my_logger
+
 
 def my_timer(original_function):
     import time
-
+    
+    @wraps(original_function)
     def wrapper(*args, **kwargs):
         t1 = time.time()
         result = original_function(*args, **kwargs)
         t2 = time.time() - t1
         print(f"{original_function.__name__} ran in: {t2} sec")
         return result
+
     return wrapper
 
 import time
 
-@my_logger
+@out_logger(logging.INFO)
 @my_timer
 def display_info(name, age):
     time.sleep(1)
     print(f"display_info ran with arguments ({name}, {age})")
 
 display_info("Davron", 25)
-
-# Example 4: Using functools
-
-from functools import wraps
-
-
