@@ -17,6 +17,7 @@ class MyClass:
 
     @classmethod
     def classmethod(cls):
+
         return 'class method called', cls
 
     @staticmethod
@@ -25,9 +26,9 @@ class MyClass:
 
 obj = MyClass()
 
+print(obj)
 # Class methods can be called from the class.
 print(MyClass.classmethod())
-print(MyClass.staticmethod())
 
 # Static methods can be called from the class.
 print(MyClass.staticmethod())
@@ -40,14 +41,20 @@ class Pizza:
 
     @classmethod
     def margherita(cls):
+        # return Pizza(['mozzarella', 'tomatoes'])
         return cls(['mozzarella', 'tomatoes'])
 
     @classmethod
     def prosciutto(cls):
         return cls(['mozzarella', 'tomatoes', 'ham'])
 
+    def crete_order(self, topings):
+        self.toppings = topings
+
 print(Pizza.margherita().toppings)
 print(Pizza.prosciutto().toppings)
+p_3 = Pizza(['cheese', 'onions', 'spam'])
+print(p_3.crete_order(['cheese', 'onions', 'spam2']))
 
 # Example:
 
@@ -57,14 +64,15 @@ class Pizza:
 
     @staticmethod
     def validate_topping(topping):
-        if topping == 'pineapple':
-            raise ValueError('No pineapples!')
-        else:
-            return True
+        return topping != 'pineapple'
 
-ingredients = ['cheese', 'onions', 'spam'] # spam is not a topping
+ingredients = ['cheese', 'onions', 'pineapple'] # spam is not a topping
+
 if all(Pizza.validate_topping(i) for i in ingredients):
     pizza = Pizza(ingredients)
+    print(pizza.toppings)
+else:
+    print('No pineapples!')
 
 ######################################### Python Encapsulation #########################################
 
@@ -81,10 +89,9 @@ if all(Pizza.validate_topping(i) for i in ingredients):
 ### 3. Public attributes can be accessed from outside the class. Protected attributes should not be used outside the class, unless inside a subclass. Private attributes should never be used outside the class.
 
 # Example:
-
 class Car:
     def __init__(self, make, model):
-        self.make = make
+        self.make = make# public
         self.model = model
 
     def __str__(self):
@@ -93,13 +100,35 @@ class Car:
 class ElectricCar(Car):
     def __init__(self, make, model, range):
         super().__init__(make, model)
-        self._range = range
+        self._range = range # protected
 
     def __str__(self):
         return f'{super().__str__()}, {self._range} miles on a charge'
 
+class SuperCar(ElectricCar):
+    def __init__(self, make, model, range, top_speed):
+            super().__init__(make, model, range)
+            self.__top_speed = top_speed # private
+    
+    def __str__(self):
+        return f'{super().__str__()}, {self.__top_speed} mph'
+
+    def get_speed(self):
+        return self.__top_speed
+
+    
+
+gm = SuperCar('GM', 'Bolt', 300, 200)
+print(gm)
+print(gm._range)
+# gm.__top_speed = 3000
+# print(gm.__top_speed)
+# print(gm.__top_speed) # AttributeError: 'SuperCar' object has no attribute '__top_speed'
+print(gm.get_speed())
+            
+
 tesla = ElectricCar('Tesla', 'Model S', 300)
-print(tesla)
+print(tesla.make)
 print(tesla._range) # 300
 
 ######################################### Python Inheritance #########################################
@@ -127,13 +156,38 @@ class Animal:
     def drink(self):
         print(f'{self.name} is drinking')
 
+    @staticmethod
+    def get_child_count(child_count: int):
+        return child_count > 0
+
 class Dog(Animal):
     def fetch(self):
         print(f'{self.name} is fetching')
 
 class Cat(Animal):
+
+    def __init__(self, name, child_count=0):
+        super().__init__(name)
+        self.child_count = child_count
+
     def swatstring(self):
         print(f'{self.name} shreds the string!')
+
+    @staticmethod
+    def get_child_count(child_count: int):
+        return child_count > 0
+
+    @classmethod
+    def set_child_count(cls, child_count: int):
+        return cls('Isis', child_count)
+
+
+if Cat.get_child_count(-1):
+    print('Isis has kittens')
+    isis_2 = Cat.set_child_count(-1)
+    print(isis_2.child_count)
+else:
+    print('Isis has no kittens')
 
 fido = Dog('Fido')
 isis = Cat('Isis')

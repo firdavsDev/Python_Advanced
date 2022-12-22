@@ -29,6 +29,7 @@ class ManagedFile:
         return self.file
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Finished")
         if self.file:
             self.file.close()
 
@@ -68,6 +69,16 @@ class Indenter:
 
 
 if __name__ == "__main__":
+    # try:
+    #     f = open('hello.txt', 'w')
+    #     f.write('hello, world!\n')
+    #     f.write('bye now')
+    # except Exception as e:
+    #     print(e)
+    # finally:
+    #     print("Finished")
+    #     f.close()
+
     with ManagedFile('hello.txt') as f:
         f.write('hello, world!\n')
         f.write('bye now')
@@ -92,9 +103,9 @@ import contextlib
 @contextlib.contextmanager
 def my_context():
     print('hello')
-    yield 42
     print('finished')
+    return 42
 
 
 with my_context() as foo:  # we use 'as' cuz my_context kind of returns yield 42
-    print(f'foo is {foo}')  # foo is 42
+    print(f'foo is {foo}')

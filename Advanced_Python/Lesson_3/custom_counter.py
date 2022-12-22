@@ -1,4 +1,3 @@
-
 def char_counter(text: str) -> dict:
     """Custom counter"""
     d = {}

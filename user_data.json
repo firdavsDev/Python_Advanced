@@ -1,7 +1,7 @@
 [
     {
         "id": "11",
-        "username": "Admin",
+        "username": "ADMIN",
         "password": "admin",
         "password2": "admin",
         "age": "18",
@@ -13,8 +13,22 @@
             "3"
         ],
         "form": "1"
-    },    {
+    },    
+    {
         "id": "1",
+        "username": "admin",
+        "password": "admin 2",
+        "password2": "admin 2",
+        "age": "18",
+        "score": "100.0",
+        "email": "admin@localhost",
+        "phone": "123456789",
+        "friends": [
+            "2",
+            "3"
+        ]
+    },    {
+        "id": "2",
         "username": "admin",
         "password": "admin",
         "password2": "admin",
@@ -157,20 +171,7 @@
             "3"
         ]
     },    {
-        "id": "1",
-        "username": "admin",
-        "password": "admin",
-        "password2": "admin",
-        "age": "18",
-        "score": "100.0",
-        "email": "admin@localhost",
-        "phone": "123456789",
-        "friends": [
-            "2",
-            "3"
-        ]
-    },    {
-        "id": "1",
+        "id": "112",
         "username": "admin",
         "password": "admin",
         "password2": "admin",

@@ -87,6 +87,9 @@ print(tesla_1.get_info())
 print(tesla_1.get_color())
 print(tesla_1.get_price())
 
+
+
+
 # What is super()?
 # super() is a built-in function that returns a proxy object (temporary object of the superclass) that allows us to access methods of the base class.
 

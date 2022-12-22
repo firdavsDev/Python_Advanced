@@ -34,7 +34,7 @@ from typing import List, Optional
 
 class User(BaseModel):
     id: int = Field(alias='id', title='User ID', description='User ID')
-    username = 'Davron_Dev'
+    username:str = Field(alias='username', title='Username', description='Username')
     password: str
     password2: str
     age: int
@@ -49,7 +49,7 @@ class User(BaseModel):
     @validator('username')
     @classmethod
     def username_valid(cls, value):
-        if not value.isalnum():
+        if not value.isalnum(): #(
             raise ValueError('Username must be alphanumeric')
         return value
 
@@ -72,7 +72,7 @@ class User(BaseModel):
         anystr_lower = True # If True, all str fields will be lowercased before validation.
 
 
-user = User(id=1, username='DavronDev', password = '123456', password2 = '123456', age=20, score=100.0, email='admin@gmail.com', phone='998977777777', friends=[2,3,4])
+user = User(id=1, username='Davron_Dev', password = '123456', password2 = '123456', age=20, score=100.0, email='admin@gmail.com', phone='998977777777', friends=[2,3,4])
 
 print(user)
 print(user.id)
@@ -116,7 +116,7 @@ print(f'users Deserialize: {users}')
 # Example: class User(BaseModel): id: int = Field(default=1)
 
 # default_factory parameter (default=...) - The default value of the field.
-# Example: class User(BaseModel): id: int = Field(default_factory=lambda: 1)
+# Example: class User(BaseModel): id: int = Field(default_factory=[])
 
 # gt parameter (default=None) - The value of the field must be greater than the value of the gt parameter.
 # Example: class User(BaseModel): id: int = Field(gt=0)
