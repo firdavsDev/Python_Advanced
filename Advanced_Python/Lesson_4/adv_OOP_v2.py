@@ -47,7 +47,7 @@ class Pizza:
     @classmethod
     def prosciutto(cls):
         return cls(['mozzarella', 'tomatoes', 'ham'])
-
+    # @staticmethod
     def crete_order(self, topings):
         self.toppings = topings
 
@@ -116,7 +116,6 @@ class SuperCar(ElectricCar):
     def get_speed(self):
         return self.__top_speed
 
-    
 
 gm = SuperCar('GM', 'Bolt', 300, 200)
 print(gm)
