@@ -16,4 +16,5 @@ def main():
     with requests.Session() as session:
         for _ in range(80):
             fetch(session, URL)
+
 # 22.57041470799959
