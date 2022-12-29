@@ -50,11 +50,11 @@ def worker1(d, lock):
     time.sleep(5)
     logging.debug('end')
     lock.release() # unlock
-    # for i in range(5):
-    #     time.sleep(random.random())
-    #     with lock:
-    #         d[i] = i
-    #         logging.debug(d)
+    for i in range(5):
+        time.sleep(random.random())
+        with lock:
+            d[i] = i
+            logging.debug(d)
 
 def worker2(d, lock):
     lock.acquire()
@@ -71,15 +71,15 @@ def worker2(d, lock):
 if __name__ == '__main__':
     # thread
 
-    d = {}
-    lock = threading.Lock()
-    t1 = threading.Thread(target=worker1, args=(d, lock))
-    t2 = threading.Thread(target=worker2, args=(d, lock))
-    t1.start()
-    t2.start()
-    t1.join()
-    t2.join()
-    print(d)
+    # d = {}
+    # lock = threading.Lock()
+    # t1 = threading.Thread(target=worker1, args=(d, lock))
+    # t2 = threading.Thread(target=worker2, args=(d, lock))
+    # t1.start()
+    # t2.start()
+    # t1.join()
+    # t2.join()
+    # print(d)
 
     # process
 

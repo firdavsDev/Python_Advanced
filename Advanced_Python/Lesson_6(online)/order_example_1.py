@@ -61,7 +61,8 @@ if __name__ == "__main__":
     order.add_item(LineItem("Apple", 10, 2)) # itemlarni savatchaga saqladik
     order.add_item(LineItem("Banana", 20, 3)) # itemlarni savatchaga saqladik
     order.add_item(LineItem("Orange", 30, 4)) # itemlarni savatchaga saqladik
-    print(order.total_price) # 200
+    order.total_price = 200 # buyurtma narxi 200
+    # print(order.total_price) # 200 # savol
     # To'lov holatini o'zgartirish
     order.set_payment_status(PaymentStatus.PAID) # buyurtmani to'langan holatga o'tkazdik
     print(order._payment_status) # paid

@@ -38,4 +38,3 @@ if __name__ == "__main__":
     duration = time.time() - start_time
     print(f"Downloaded {len(sites)} in {duration} seconds")
 
-#
