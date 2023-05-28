@@ -10,7 +10,7 @@ falz = lambda then_do: lambda else_do: else_do #lambda function
 tired = troo
 not_tired = falz
 
-coffees_today = if_then_else(tired)(3)(1)
+coffees_today = if_then_else(tired)("I'm tired")("I'm not tired")
 print(coffees_today)
 
 end_time = time.time()

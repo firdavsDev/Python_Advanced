@@ -21,8 +21,6 @@
 # The multiprocessing module offers both local and remote concurrency, effectively side-stepping the Global Interpreter Lock by using subprocesses instead of threads.
 # Due to this, the multiprocessing module allows the programmer to fully leverage multiple processors on a given machine.
 # It runs on both Unix and Windows.
-# The multiprocessing module offers both local and remote concurrency, effectively side-stepping the Global Interpreter Lock by using subprocesses instead of threads.
-# Due to this, the multiprocessing module allows the programmer to fully leverage multiple processors on a given machine.
 
 # Lock
 # The Lock class implements a simple locking mechanism.

@@ -36,7 +36,7 @@ class LineItem:
 class Order:
     """Buyurtma"""
     items: list[LineItem] = field(default_factory=list) # savatchamiz
-    _payment_status: PaymentStatus = PaymentStatus.PENDING # private variable is PENDING
+    _payment_status: PaymentStatus = PaymentStatus.PENDING # protect variable is PENDING
 
     def add_item(self, item: LineItem):
         """Bu buyurtma savatchamizga item qo'shadi"""
@@ -74,3 +74,7 @@ if __name__ == "__main__":
 
 # _payment_status bu bizning private variable uni o'zgartirish mumkin emas va Ammo uni o'zgartirish uchun bizga set_payment_status() methodidan foydalanishimiz kerak buldi
 # Pythonda private variable yaratish uchun _ ni ishlatishimiz kerak
+
+
+
+
